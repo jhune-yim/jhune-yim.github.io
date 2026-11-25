@@ -109,6 +109,7 @@
     .links a + a { margin-left: 0.8rem; }
 
     /* Papers grouped under a series */
+
     .sub {
       margin: 0.5rem 0 0;
       padding-left: 1rem;
@@ -117,6 +118,18 @@
     }
     .sub > li { margin-bottom: 0.6rem; }
     .sub .title { font-size: 0.95rem; }
+
+    /* Paper intro */
+
+    .paper-intro {
+        margin: 0;
+        max-width: 65ch;        /* 한 줄이 너무 길어지지 않도록 폭 제한 */
+        font-size: 1.0rem;
+        color: #555555;           /* 본문보다 한 톤 부드러운 회색 */
+        line-height: 1.55;
+    }
+
+    /* Footer */
 
     footer {
       margin-top: 3.5rem;
@@ -162,10 +175,12 @@
                   <li>
                     <span class="title">Notes on Analytification, GAGA, Kähler Identities, and Lefschetz Theory</span>
                     <span class="links"><a href="https://github.com/jhune-yim/Hodge_Theory_Notes/blob/main/gaga_kahler_lefschetz.pdf" target="_blank" rel="noopener">[PDF]</a></span>
+                    <span class="paper-intro">Expository notes that go from Serre's GAGA theorem to the Hodge decomposition of a smooth projective variety. The Kähler identities are proved in normal corrdinates, and Hard Lefschetz is derived from an <var>sl(2)</var> action on harmonic forms. The last part computes the Hodge numbers of a smooth quintic threefold.</span>
                   </li>
                   <li>
                     <span class="title">Hodge Classes and Algebraic Cycles</span>
                     <span class="links"><a href="https://github.com/jhune-yim/Hodge_Theory_Notes/blob/main/hodge_classes_algebraic_cycles.pdf" target="_blank" rel="noopener">[PDF]</a></span>
+                    <span class="paper-intro">An expository account of the rational Hodge conjecture. It constructs the cycle-class map, proves the known cases of divisors and curves, and shows on the quintic threefold how a line removes the denominator left by the Lefschetz argument. A closing survey covers integral and Kähler counterexamples, Hodge loci, and recent results on abelian varieties.</span>
                   </li>
                 </ul>
           </li>

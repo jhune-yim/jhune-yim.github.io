@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jhune Yim — Research</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Papers, notes, and codes by Jhune Yim.">
+  <title>Your Name · Research</title>
   <style>
     :root {
       --text: #1c1c1c;
@@ -11,254 +12,201 @@
       --link: #1b4f72;
       --border: #e2e2e2;
       --bg: #ffffff;
+      --serif: "Palatino Linotype", "Book Antiqua", Palatino, "Noto Serif KR", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
+    /* Base size grows with the window: 18px on phones, ~22px at 1920px, max 28px.
+       Everything else is in rem, so the whole layout scales together. */
     html {
-        font-size: 20px;
+      font-size: clamp(1.125rem, 0.9rem + 0.4vw, 1.75rem);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
       margin: 0;
-      padding: 3.5rem 1.5rem 5rem;
+      padding: 3rem 1.25rem 4rem;
       background: var(--bg);
       color: var(--text);
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-      font-size: 20px;
-      line-height: 1.65;
+      font-family: var(--serif);
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 720px;
+      max-width: 36rem;
       margin: 0 auto;
     }
 
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 2px; }
+
     header {
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.4rem;
       margin-bottom: 2.2rem;
+      border-bottom: 1px solid var(--border);
     }
 
     h1 {
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.3rem;
       font-size: 2rem;
       font-weight: 600;
-      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     .affiliation {
-      margin: 0 0 0.8rem;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .meta-links {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.9rem;
+      margin: 0 0 0.6rem;
       color: var(--muted);
     }
 
-    .meta-links a {
-      color: var(--link);
-      text-decoration: none;
+    .meta-links,
+    nav {
+      font-family: var(--sans);
+      font-size: 0.85rem;
     }
 
-    .meta-links a:hover {
-      text-decoration: underline;
-    }
-
-    .sep {
-      margin: 0 0.5rem;
-      color: #bdbdbd;
-    }
+    .meta-links { color: var(--muted); }
+    .sep { margin: 0 0.45rem; color: #bdbdbd; }
 
     nav {
-      margin-top: 1.2rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.92rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      margin-top: 1.1rem;
     }
+    nav a { color: var(--text); }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-right: 1.2rem;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-    }
-
-    nav a:hover {
-      border-bottom-color: var(--text);
-    }
-
-    section {
-      margin-bottom: 2.8rem;
-    }
+    section { margin-bottom: 2.6rem; }
 
     h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
       margin: 0 0 1rem;
-      padding-bottom: 0.35rem;
+      padding-bottom: 0.3rem;
+      font-size: 1.2rem;
+      font-weight: 600;
       border-bottom: 1px solid var(--border);
     }
 
-    ul.paper-list {
-      list-style-type: disc;
-      padding-left: 1.25rem;
+    .papers {
       margin: 0;
+      padding-left: 1.2rem;
+      list-style: disc;
     }
+    .papers > li { margin-bottom: 1.2rem; }
+    .papers li::marker { color: var(--muted); }
 
-    ul.paper-list li {
-      margin-bottom: 1.25rem;
-    }
+    .title { display: block; font-weight: 600; }
+    .meta  { display: block; color: var(--muted); font-size: 0.92rem; }
 
-
-  ul.paper-list .sub-papers {
-  list-style: none;
-  margin: 0.6rem 0 0 0;
-  padding-left: 1.2rem;
-  /* 왼쪽 세로선이 필요 없다면 아래 border-left 줄을 지우세요 */
-  border-left: 2px solid var(--border);
-}
-
-ul.paper-list .sub-papers > li {
-  position: relative;
-  margin-bottom: 0.65rem;
-}
-
-ul.paper-list .sub-papers > li::before {
-  content: "-";
-  position: absolute;
-  left: -0.9rem;
-  top: 0;
-  color: var(--muted);
-}
-
-    .paper-title {
-        font-size: 1.0rem;
-      font-weight: 800;
-      display: block;
-    }
-
-    .sub-paper-title {
-  display: block;
-  font-size: 0.96rem;
-  font-weight: 600;
-}
-
-    .paper-meta {
-      color: var(--muted);
-      font-size: 1.0rem;
+    .links {
       display: block;
       margin-top: 0.15rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
     }
+    .links a + a { margin-left: 0.8rem; }
 
-    .paper-links {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 1.0rem;
-      margin-top: 0.25rem;
-      display: block;
+    /* Papers grouped under a series */
+    .sub {
+      margin: 0.5rem 0 0;
+      padding-left: 1rem;
+      list-style: none;
+      border-left: 2px solid var(--border);
     }
-
-    .paper-links a {
-      color: var(--link);
-      text-decoration: none;
-      margin-right: 0.75rem;
-    }
-
-    .paper-links a:hover {
-      text-decoration: underline;
-    }
+    .sub > li { margin-bottom: 0.6rem; }
+    .sub .title { font-size: 0.95rem; }
 
     footer {
-      margin-top: 4rem;
+      margin-top: 3.5rem;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
   </style>
 </head>
+
+<!-- =========== body =========== -->
+
 <body>
   <div class="container">
     <header>
       <h1>Jhune Yim</h1>
-      <p class="affiliation">
-
-      </p>
+      <p class="affiliation"></p>
       <div class="meta-links">
-        <a href="mailto:jhune_yim@protonmail.com">Email</a>
-        <span class="sep">·</span>
-        <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">ORCID</a>
-        <span class="sep">·</span>
-        <a href="https://github.com/jhune-yim" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:your.email@example.com" target="_blank" rel="noopener">Email</a><span class="sep" aria-hidden="true">·</span><a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">ORCID</a><span class="sep" aria-hidden="true">·</span><a href="https://github.com/jhune-yim" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <nav aria-label="Research areas">
-        <a href="#mathematics">Mathematics</a>
-        <a href="#peppl">Philosophy, Economics, Public Policy and Law</a>
+      <nav aria-label="Sections">
+        <a href="#maths">Mathematics · Physics</a>
+        <a href="#peppl">Philosophy · Economics · Public Policy · Law</a>
         <a href="#cs-ai">Computer Science / AI</a>
-        <a href="#physics">Physics</a>
       </nav>
     </header>
 
+<!-- =========== main =========== -->
     <main>
-      <section id="mathematics">
-        <h2>Mathematics</h2>
-        <ul class="paper-list">
+      <section id="maths">
+        <h2>Mathematics · Physics</h2>
+        <ul class="papers">
 
-<li>
-  <span class="paper-title">Hodge Theory Notes</span>
-  <span class="paper-meta">Working Paper Series, 2026</span>
-  <span class="paper-links">
-    <a href="https://github.com/jhune-yim/Hodge_Theory_Notes" target="_blank" rel="noopener">[GitHub Repository]</a>
-  </span>
-  <ul class="sub-papers">
-    <li>
-      <span class="sub-paper-title">Notes on Analytification, GAGA, Kähler Identities, and Lefschetz Theory</span>
-      <span class="paper-links">
-        <a href="https://github.com/jhune-yim/Hodge_Theory_Notes/blob/main/gaga_kahler_lefschetz.pdf" target="_blank" rel="noopener">[PDF]</a>
-      </span>
-    </li>
-    <li>
-      <span class="sub-paper-title">Hodge Classes and Algebraic Cycles</span>
-      <span class="paper-links">
-        <a href="https://github.com/jhune-yim/Hodge_Theory_Notes/blob/main/hodge_classes_algebraic_cycles.pdf" target="_blank" rel="noopener">[PDF]</a>
-      </span>
-    </li>
-  </ul>
-</li>
-
+<!-- =========== list 1 =========== -->
 
           <li>
-             <span class="paper-title">From Exact Counting To Circuit Lower Bounds: A Reconstruction Of The Announced Refutation Of ETH and Its Verification Obligations</span>
-             <span class="paper-meta">Expository Note, 2026</span>
-             <span class="paper-links">
-               <a href="https://github.com/jhune-yim/ETH/blob/main/ETH.pdf" target="_blank" rel="noopener">[PDF]</a>
-               <a href="https://github.com/jhune-yim/ETH" target="_blanc" rel="noopener">[GitHub Repository]</a>
-             </span>
+            <span class="title">Hodge Theory Notes</span>
+            <span class="meta">Expository Notes, 2026</span>
+            <span class="links">
+              <a href="https://github.com/jhune-yim/Hodge_Theory_Notes" target="_blank" rel="noopener">[GitHub]</a>
+                <ul class="sub">
+                  <li>
+                    <span class="title">Notes on Analytification, GAGA, Kähler Identities, and Lefschetz Theory</span>
+                    <span class="links"><a href="https://github.com/jhune-yim/Hodge_Theory_Notes/blob/main/gaga_kahler_lefschetz.pdf" target="_blank" rel="noopener">[PDF]</a></span>
+                  </li>
+                  <li>
+                    <span class="title">Hodge Classes and Algebraic Cycles</span>
+                    <span class="links"><a href="https://github.com/jhune-yim/Hodge_Theory_Notes/blob/main/hodge_classes_algebraic_cycles.pdf" target="_blank" rel="noopener">[PDF]</a></span>
+                  </li>
+                </ul>
           </li>
+
+<!-- ========== list 2 =========== -->
+
           <li>
-            <span class="paper-title">Monotone Derivatives Are Continuous</span>
-            <span class="paper-meta">Expository Note, 2026</span>
-            <span class="paper-links">
+            <span class="title">From Exact Counting To Circuit Lower Bounds: A Reconstruction Of The Announced Refutation Of ETH and Its Verification Obligations</span>
+            <span class="meta">Expository Notes, 2026</span>
+            <span class="links">
+              <a href="https://github.com/jhune-yim/ETH/blob/main/ETH.pdf" target="_blank" rel="noopener">[PDF]</a>
+              <a href="https://github.com/jhune-yim/ETH" target="_blanc" rel="noopener">[GitHub]</a>
+            </span>
+          </li>
+
+<!-- =========== list 3 =========== -->
+
+          <li>
+           <span class="title">Monotone Derivatives Are Continuous</span>
+            <span class="meta">Expository Notes, 2026</span>
+            <span class="links">
               <a href="https://github.com/jhune-yim/Monotone_derivatives_are_continuous/releases/latest/download/continuity_1.pdf" target="_blank" rel="noopener">[PDF]</a>
-              <a href="https://github.com/jhune-yim/Monotone_derivatives_are_continuous" target="_blank" rel="noopener">[GitHub Repository]</a>
+              <a href="https://github.com/jhune-yim/Monotone_derivatives_are_continuous" target="_blanc" rel="noopener">[GitHub]</a>
             </span>
           </li>
 
         </ul>
       </section>
 
+<!-- =========== Philosophy Economics Public Policy Law =========== -->
+
       <section id="peppl">
-        <h2>Economics</h2>
-        <ul class="paper-list">
+        <h2>Philosophy · Economics · Public Policy · Law</h2>
+        <ul class="papers">
+
+<!-- =========== list 1 =========== -->
+
           <li>
-            <span class="paper-title">Mean and Median Income: What Their Gap Reveals About Inequaltiy</span>
-            <span class="paper-meta">Working Paper, 2026</span>
-            <span class="paper-links">
+            <span class="title">Mean and Median Income: What Their Gap Reveals About Inequality</span>
+            <span class="meta">Working Paper, 2026</span>
+            <span class="links">
               <a href="https://github.com/jhune-yim/gdp_inequality/blob/main/gdp_inequality_en.pdf" target="_blank" rel="noopener">[PDF]</a>
               <a href="https://github.com/jhune-yim/gdp_inequality" target="_blank" rel="noopener">[Code &amp; LaTeX]</a>
             </span>
@@ -266,57 +214,51 @@ ul.paper-list .sub-papers > li::before {
         </ul>
       </section>
 
+<!-- =========== Computer Science / AI =========== -->
+
       <section id="cs-ai">
         <h2>Computer Science / AI</h2>
-        <ul class="paper-list">
+        <ul class="papers">
 
+<!-- =========== list 1 =========== -->
           <li>
-            <span class="paper-title">Primitive Roots Modulo n</span>
-            <span class="paper-meta">SBCL Code, 2026</span>
-            <span class="paper-links">
-              <a href="https://github.com/jhune-yim/cyclic_group/blob/main/README.md" target="_blank" rel="noopener">[README.md]</a>
-              <a href="https://github.com/jhune-yim/cyclic_group" target="_blank" rel="noopener">[GitHub Repository]</a>
+            <span class="title">Primitive Roots Modulo <var>n</var></span>
+            <span class="meta">Preprint, 2026</span>
+            <span class="links">
+              <a href="https://github.com/jhune-yim/cyclic_group/blob/main/README.md" target="_blank" rel="noopener">[PDF]</a>
+              <a href="https://github.com/jhune-yim/cyclic_group" target="_blank" rel="noopener">[GitHub]</a>
             </span>
           </li>
 
+<!-- =========== list 2 =========== -->
           <li>
-            <span class="paper-title">Functional Anagram Generator</span>
-            <span class="paper-meta">Python Code, 2026</span>
-            <span class="paper-links">
-              <a href="https://github.com/jhune-yim/anagram_generator/blob/main/README.md" target="_blank" rel="noopener">[README.md]</a>
-              <a href="https://github.com/jhune-yim/anagram_generator" target="_blank" rel="noopener">[GitHub Repository]</a>
+            <span class="title">Functional Anagram Generator</span>
+            <span class="meta">Python Code, 2026</span>
+            <span class="links">
+              <a href="https://github.com/jhune-yim/anagram_generator/blob/main/README.md" target="_blank" rel="noopener">[PDF]</a>
+              <a href="https://github.com/jhune-yim/anagram_generator" target="_blank" rel="noopener">[GitHub]</a>
             </span>
           </li>
 
+<!-- =========== list 3 =========== -->
+
           <li>
-            <span class="paper-title">Knights Knaves in Lean 4</span>
-            <span class="paper-meta">Lean 4 Code, 2026</span>
-            <span class="paper-links">
-              <a href="https://github.com/jhune-yim/lean4-knights-knaves-logic-puzzles/blob/main/README.md" target="_blank" rel="noopener">[README.md]</a>
-              <a href="https://github.com/jhune-yim/lean4-knights-knaves-logic-puzzles" target="_blank" rel="noopener">[GitHub Repository]</a>
+            <span class="title">Knights Knaves in Lean 4</span>
+            <span class="meta">Lean 4 Code, 2026</span>
+            <span class="links">
+              <a href="https://github.com/jhune-yim/lean4-knights-knaves-logic-puzzles/blob/main/README.md" target="_blank" rel="noopener">[README]</a>
+              <a href="https://github.com/jhune-yim/lean4-knights-knaves-logic-puzzles" target="_blank" rel="noopener">[GitHub]</a>
             </span>
           </li>
+
         </ul>
       </section>
-
-      <section id="physics">
-        <h2>Physics</h2>
-        <ul class="paper-list">
-
-          <li>
-            <span class="paper-title">Physics</span>
-            <span class="paper-meta">Physics</span>
-            <span class="paper-links">
-              <a href="https://github.com/jhune-yim" target="_blank" rel="noopener">[PDF]</a>
-              <a href="https://github.com/jhune-yim" target="_blank" rel="noopener">[Github Repository]</a>
-            </span>
-          </li>
-      </section>
-
     </main>
 
+<!-- ========== footer =========== -->
+
     <footer>
-      Last updated: November 2026
+      <p>&copy 2026 Jhune Yim. All rights reserved. This is created by Jhune Yim. Last updated: November 2026</p>
     </footer>
   </div>
 </body>
